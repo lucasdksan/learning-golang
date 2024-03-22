@@ -251,76 +251,20 @@ Em Go, uma função pode receber zero ou mais parâmetros e pode retornar zero o
 
 Esta função soma recebe dois parâmetros do tipo inteiro e retorna a soma desses dois valores como um inteiro.
 
-**Funções Anônimas**
-
-Em Go, é possível criar funções sem nome, conhecidas como funções anônimas ou closures. Essas funções são frequentemente utilizadas em situações onde uma função é passada como argumento para outra função, como em goroutines ou no uso de funções de ordem superior. Por exemplo:
+Em GO, é permitido uma função ter mais de um retorno.
 
 ```go
-    func main() {
-        minhaFuncao := func() {
-            fmt.Println("Olá, mundo!")
-        }
-        minhaFuncao()  // Chamada da função anônima
+    func MathematicalCalculations(a, b int) (int, int) {
+        soma := a + b
+        sub := a - b
+
+        return soma, sub // metodo para ter dois ou mais retorno em uma função
     }
+
+    result_2, result_3 := mathematicalcalculations.MathematicalCalculations(10, 5)
 ```
 
-**Closures**
-
-As closures em Go são funções que capturam variáveis do contexto ao seu redor. Elas são particularmente úteis para criar funções que podem ser configuradas com diferentes contextos, como no padrão de fábrica de funções. Por exemplo:
-
-```go
-    func gerarIncrementador(incremento int) func() int {
-        contador := 0
-        return func() int {
-            contador += incremento
-            return contador
-        }
-    }
-```
-
-Neste exemplo, a função gerarIncrementador retorna uma closure que captura a variável incremento e retorna uma função que incrementa um contador interno.
-
-**Funções Variádicas**
-
-Em Go, é possível definir funções variádicas, que podem receber um número variável de argumentos. Para criar uma função variádica, você usa ... seguido do tipo do argumento variádico. Por exemplo:
-
-```go
-    func somarNumeros(nums ...int) int {
-        total := 0
-        for _, num := range nums {
-            total += num
-        }
-        return total
-    }
-```
-
-**Funções Recursivas**
-
-Go suporta a recursão, permitindo que uma função chame a si mesma. No entanto, é importante considerar a eficiência e a base de casos da recursão para evitar estouro de pilha. Por exemplo:
-
-```go
-    func fatorial(n int) int {
-        if n == 0 {
-            return 1
-        }
-        return n * fatorial(n-1)
-    }
-```
-
-**Concorrência e Goroutines**
-
-Em Go, as goroutines são leves e podem ser iniciadas facilmente com a palavra-chave go. Elas são frequentemente utilizadas para realizar operações concorrentes de forma eficiente. Por exemplo:
-
-```go
-    func main() {
-        go minhaFuncaoConcorrente()
-        // outras operações
-    }
-
-    func minhaFuncaoConcorrente() {
-        // código executado em paralelo
-    }
-```
+A função MathematicalCalculations recebe dois valores e aplica as operações de soma e subtração. Em seguida retorna os dois resultados;
 
 ## Operadores
 
@@ -786,3 +730,334 @@ for chave, valor := range idade {
 Maps são úteis quando você precisa associar valores a chaves específicas e quando a ordem dos elementos não é importante.
 Slices são usados quando você precisa de uma coleção ordenada de elementos e quando a indexação por posição é necessária.
 Arrays são usados quando o tamanho dos dados é fixo e conhecido antecipadamente.
+
+## Estruturas de Controle
+
+**Estrutura if**
+
+A estrutura if é usada para executar um bloco de código se uma condição for avaliada como verdadeira. A sintaxe básica é a seguinte:
+
+```go
+if condição {
+    // código a ser executado se a condição for verdadeira
+}
+```
+
+Por exemplo:
+
+```go
+idade := 18
+if idade >= 18 {
+    fmt.Println("Você é maior de idade.")
+}
+```
+
+Você também pode ter uma instrução if com uma inicialização de variável, onde a variável declarada é válida apenas no escopo do if:
+
+```go
+if idade := 18; idade >= 18 {
+    fmt.Println("Você é maior de idade.")
+}
+```
+
+**Estrutura if e else**
+
+Além do if, você também pode usar o else para executar um bloco de código se a condição não for verdadeira. A sintaxe básica é:
+
+```go
+if condição {
+    // código a ser executado se a condição for verdadeira
+} else {
+    // código a ser executado se a condição não for verdadeira
+}
+```
+
+Por exemplo:
+
+```go
+    idade := 16
+    if idade >= 18 {
+        fmt.Println("Você é maior de idade.")
+    } else {
+        fmt.Println("Você é menor de idade.")
+    }
+```
+
+**Estrutura if e else if**
+
+Você pode encadear múltiplas condições usando else if para testar várias condições em sequência. A sintaxe é:
+
+```go
+    if condição1 {
+        // código a ser executado se a condição1 for verdadeira
+    } else if condição2 {
+        // código a ser executado se a condição2 for verdadeira
+    } else {
+        // código a ser executado se nenhuma das condições anteriores for verdadeira
+    }
+```
+Por exemplo:
+
+```go
+    idade := 16
+    if idade >= 18 {
+        fmt.Println("Você é maior de idade.")
+    } else if idade >= 16 {
+        fmt.Println("Você está quase lá.")
+    } else {
+        fmt.Println("Você é menor de idade.")
+    }
+```
+
+## Switch
+
+**Estrutura switch**
+
+A estrutura switch em Go é usada para avaliar uma expressão e executar diferentes blocos de código com base nos valores resultantes dessa expressão. A sintaxe básica é a seguinte:
+
+```go
+switch expressao {
+case valor1:
+    // código a ser executado se expressao for igual a valor1
+case valor2:
+    // código a ser executado se expressao for igual a valor2
+default:
+    // código a ser executado se nenhum dos casos anteriores for verdadeiro
+}
+```
+
+Por exemplo:
+
+```go
+diaDaSemana := 3
+switch diaDaSemana {
+case 1:
+    fmt.Println("Segunda-feira")
+case 2:
+    fmt.Println("Terça-feira")
+case 3:
+    fmt.Println("Quarta-feira")
+default:
+    fmt.Println("Outro dia da semana")
+}
+```
+
+**Expressões de Caso**
+
+Em Go, os casos em um switch não precisam ser apenas valores constantes. Você pode usar expressões em cada caso, o que oferece grande flexibilidade. Por exemplo:
+
+```go
+diaDaSemana := "quarta"
+switch diaDaSemana {
+case "segunda", "terça", "quarta", "quinta", "sexta":
+    fmt.Println("Dia útil")
+case "sábado", "domingo":
+    fmt.Println("Fim de semana")
+default:
+    fmt.Println("Dia inválido")
+}
+```
+
+**Expressões Vazias**
+
+Se a expressão de um switch for omitida, o switch é avaliado como true e o primeiro caso que resultar em true será executado. Isso permite criar estruturas de controle mais concisas e legíveis. Por exemplo:
+
+```go
+hora := 12
+switch {
+case hora < 12:
+    fmt.Println("Bom dia!")
+case hora >= 12 && hora < 18:
+    fmt.Println("Boa tarde!")
+default:
+    fmt.Println("Boa noite!")
+}
+```
+
+**Fallthrough**
+
+Em Go, o comportamento padrão de um switch é sair após a execução de um caso. No entanto, você pode usar a palavra-chave fallthrough para forçar a execução do próximo caso, independentemente da expressão de correspondência. Por exemplo:
+
+```go
+switch num := 10; {
+case num < 20:
+    fmt.Println("Menor que 20")
+    fallthrough
+case num < 15:
+    fmt.Println("Menor que 15")
+}
+```
+
+Neste exemplo, "Menor que 20" é impresso e, em seguida, "Menor que 15" também é impresso devido ao fallthrough.
+
+## Loop
+
+**Loop for**
+
+O loop for é usado para repetir um bloco de código enquanto uma condição específica for verdadeira. A sintaxe básica é:
+
+```go
+for inicialização; condição; pós-loop {
+    // código a ser repetido
+}
+```
+
+Por exemplo:
+
+```go
+for i := 0; i < 5; i++ {
+    fmt.Println(i)
+}
+```
+
+O for em Go é muito flexível. Você pode omitir a inicialização e/ou a condição e/ou o pós-loop, criando diferentes tipos de loops.
+
+**Loop for Infinito**
+
+Você pode criar um loop infinito omitindo todas as três partes do for:
+
+```go
+for {
+    // código a ser repetido indefinidamente
+}
+```
+
+**Loop for com Range**
+
+O loop for com range é usado para iterar sobre slices, arrays, strings, maps e canais. A sintaxe é:
+
+```go
+for indice, valor := range colecao {
+    // código a ser repetido para cada elemento da coleção
+}
+```
+
+Por exemplo:
+
+```go
+numeros := []int{1, 2, 3, 4, 5}
+for indice, valor := range numeros {
+    fmt.Println("Índice:", indice, "Valor:", valor)
+}
+```
+
+**Uso de break e continue**
+
+break: Termina o loop atual imediatamente.
+continue: Pula a execução das iterações restantes do loop atual e vai para a próxima iteração.
+
+Por exemplo:
+
+```go
+for i := 0; i < 10; i++ {
+    if i == 5 {
+        break  // Sai do loop quando i for igual a 5
+    }
+    if i%2 == 0 {
+        continue  // Pula as iterações pares
+    }
+    fmt.Println(i)
+}
+```
+
+## Funções Avançadas
+
+**Funções de retorno nomeado**
+
+Em Go (ou Golang), funções de retorno nomeado são uma característica interessante e útil. Elas permitem que você atribua um nome a um valor de retorno na assinatura da função. Isso pode tornar o código mais legível, especialmente em funções que retornam múltiplos valores.
+
+Aqui está um exemplo simples de uma função que calcula a área e o perímetro de um retângulo e usa retornos nomeados:
+
+```go
+    package main
+
+    import "fmt"
+
+    func calculateRectangleProperties(length, width float64) (area, perimeter float64) {
+        area = length * width
+        perimeter = 2 * (length + width)
+        return // sem a necessidade de especificar os nomes novamente
+    }
+
+    func main() {
+        length := 5.0
+        width := 3.0
+        area, perimeter := calculateRectangleProperties(length, width)
+        fmt.Printf("Area: %.2f\nPerimeter: %.2f\n", area, perimeter)
+    }
+```
+
+Neste exemplo, a função calculateRectangleProperties retorna duas variáveis: area e perimeter, ambas com nomes definidos na assinatura da função. Quando chamamos a função na função main, podemos atribuir diretamente esses valores a variáveis locais area e perimeter.
+
+Os retornos nomeados não apenas tornam o código mais legível, mas também podem ajudar a evitar erros ao retornar valores de uma função, especialmente quando você está lidando com múltiplos valores de retorno. Além disso, eles podem ser especialmente úteis quando você precisa de clareza em funções mais complexas.
+
+**Funções Anônimas**
+
+Em Go, é possível criar funções sem nome, conhecidas como funções anônimas ou closures. Essas funções são frequentemente utilizadas em situações onde uma função é passada como argumento para outra função, como em goroutines ou no uso de funções de ordem superior. Por exemplo:
+
+```go
+    func main() {
+        minhaFuncao := func() {
+            fmt.Println("Olá, mundo!")
+        }
+        minhaFuncao()  // Chamada da função anônima
+    }
+```
+
+**Closures**
+
+As closures em Go são funções que capturam variáveis do contexto ao seu redor. Elas são particularmente úteis para criar funções que podem ser configuradas com diferentes contextos, como no padrão de fábrica de funções. Por exemplo:
+
+```go
+    func gerarIncrementador(incremento int) func() int {
+        contador := 0
+        return func() int {
+            contador += incremento
+            return contador
+        }
+    }
+```
+
+Neste exemplo, a função gerarIncrementador retorna uma closure que captura a variável incremento e retorna uma função que incrementa um contador interno.
+
+**Funções Variádicas**
+
+Em Go, é possível definir funções variádicas, que podem receber um número variável de argumentos. Para criar uma função variádica, você usa ... seguido do tipo do argumento variádico. Por exemplo:
+
+```go
+    func somarNumeros(nums ...int) int {
+        total := 0
+        for _, num := range nums {
+            total += num
+        }
+        return total
+    }
+```
+
+**Funções Recursivas**
+
+Go suporta a recursão, permitindo que uma função chame a si mesma. No entanto, é importante considerar a eficiência e a base de casos da recursão para evitar estouro de pilha. Por exemplo:
+
+```go
+    func fatorial(n int) int {
+        if n == 0 {
+            return 1
+        }
+        return n * fatorial(n-1)
+    }
+```
+
+**Concorrência e Goroutines**
+
+Em Go, as goroutines são leves e podem ser iniciadas facilmente com a palavra-chave go. Elas são frequentemente utilizadas para realizar operações concorrentes de forma eficiente. Por exemplo:
+
+```go
+    func main() {
+        go minhaFuncaoConcorrente()
+        // outras operações
+    }
+
+    func minhaFuncaoConcorrente() {
+        // código executado em paralelo
+    }
+```
