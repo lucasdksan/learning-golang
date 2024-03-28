@@ -10,6 +10,8 @@ type test_scenario struct {
 }
 
 func TestAddress_type(t *testing.T) {
+	t.Parallel() // Roda os testes em paralelo
+
 	test_scenarios := []test_scenario{
 		{"Rua ABC", "rua"},
 		{"Rua Capitão Martion Machado", "rua"},
