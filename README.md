@@ -1527,3 +1527,240 @@ Neste exemplo, duas goroutines de entrada (input1 e input2) enviam dados para um
 **Uso de Multiplexadores**
 
 Os multiplexadores são úteis sempre que você precisa combinar dados de várias fontes em uma única saída ou quando precisa processar dados de forma assíncrona e concorrente.
+
+## Testes
+
+Testes são uma parte essencial do desenvolvimento de software em Go, e a linguagem oferece um conjunto robusto de ferramentas para escrever e executar testes de forma eficaz. Vamos explorar em profundidade os testes em Go.
+
+**Estrutura de Teste**
+
+Em Go, os testes são escritos em arquivos separados com o sufixo _test.go. Cada arquivo de teste contém uma ou mais funções de teste que começam com Test e têm a seguinte assinatura:
+
+```go
+func TestNomeDaFuncao(t *testing.T) {
+    // Teste aqui
+}
+```
+
+**Executando Testes**
+
+Para executar testes em um pacote, você pode usar o comando go test seguido do caminho para o pacote:
+
+```bash
+go test ./...
+```
+
+Isso executará todos os testes nos pacotes e subpacotes do diretório atual.
+
+**Funções de Teste**
+
+Dentro de uma função de teste, você pode usar funções de suporte do pacote testing para relatar falhas, comparar valores e executar ações de teste. Alguns exemplos de funções comuns incluem t.Error, t.Errorf, t.Fail, t.FailNow, t.Log, t.Logf, t.Fatal e t.Fatalf.
+
+**Tabela de Testes**
+
+Em Go, você pode usar tabelas de testes para executar um conjunto de casos de teste com diferentes entradas e esperar resultados. Isso é feito definindo uma matriz de estruturas com entradas e resultados esperados e iterando sobre ela na função de teste.
+
+**Testes de Benchmark**
+
+Além dos testes unitários, Go oferece suporte a testes de benchmarking para medir o desempenho de funções e algoritmos. Os testes de benchmark são escritos em arquivos de teste separados e começam com o prefixo Benchmark.
+
+**Testes de Cobertura**
+
+Go também inclui uma ferramenta de cobertura integrada que pode ser usada para medir a cobertura de código por testes. Você pode gerar um relatório de cobertura usando o comando go test -cover e obter informações detalhadas sobre a cobertura de cada pacote.
+
+**Convenções de Nomes**
+
+É uma prática comum em Go nomear os arquivos de teste para o mesmo nome que o arquivo que estão testando, mas com o sufixo _test.go. Isso ajuda a associar facilmente os testes com o código correspondente.
+
+## Testes Avançados
+
+Testes avançados em Go vão além dos testes unitários básicos e podem incluir testes de integração, testes de aceitação, testes de carga, testes de mutação e muito mais. Vamos explorar algumas técnicas avançadas de teste em Go.
+
+**Testes de Integração**
+
+Os testes de integração verificam se os diferentes componentes de um sistema funcionam corretamente juntos. Eles podem envolver a interação com bancos de dados, serviços externos ou APIs. Em Go, os testes de integração podem ser escritos da mesma forma que os testes unitários, mas com configurações adicionais para ambientes de teste.
+
+**Testes de Aceitação**
+
+Os testes de aceitação, também conhecidos como testes de ponta a ponta ou testes de sistema, verificam se o sistema atende aos requisitos e comportamentos especificados pelos usuários. Eles podem ser implementados usando ferramentas de automação de testes, como o Selenium, ou escrevendo código personalizado para interagir com a interface do usuário.
+
+**Testes de Carga**
+
+Os testes de carga avaliam o desempenho de um sistema sob cargas de trabalho pesadas. Eles podem ajudar a identificar gargalos de desempenho, vazamentos de recursos e outros problemas de escalabilidade. Em Go, os testes de carga podem ser escritos para simular solicitações de usuários concorrentes e medir a latência e o throughput do sistema.
+
+**Testes de Mutação**
+
+Os testes de mutação envolvem a introdução deliberada de mutações no código-fonte para verificar se os testes conseguem detectar essas alterações. Eles ajudam a garantir que os testes sejam robustos e capazes de detectar falhas causadas por mudanças no código.
+
+**Mocking e Stubbing**
+
+Em Go, ferramentas como o gomock podem ser usadas para criar mocks e stubs para testar código que depende de interfaces externas, como bancos de dados ou APIs. Isso permite isolar o código em teste e controlar seu comportamento durante os testes.
+
+**Testes de Regressão**
+
+Os testes de regressão garantem que as alterações recentes no código não quebraram funcionalidades existentes. Eles podem ser escritos para automatizar a execução de casos de teste existentes e garantir que o código permaneça estável ao longo do tempo.
+
+## JSON
+
+Em Go, trabalhar com JSON é uma tarefa comum, especialmente ao lidar com comunicação entre sistemas ou armazenamento de dados em arquivos. Vamos explorar algumas técnicas avançadas para lidar com JSON em Go.
+
+**Marshal e Unmarshal**
+
+As funções json.Marshal e json.Unmarshal são usadas para codificar e decodificar dados JSON em Go, respectivamente. No entanto, existem casos em que precisamos de mais controle sobre esse processo.
+
+**Tags de Campo JSON**
+
+É possível definir tags de campo em estruturas em Go para personalizar a serialização e desserialização de dados JSON. Isso permite controlar o nome dos campos, ignorar campos, definir opções de omição e muito mais.
+
+```go
+type Person struct {
+    Name string `json:"nome"`
+    Age  int    `json:"idade"`
+}
+```
+
+**Codificadores e Decodificadores Personalizados**
+
+Em alguns casos, você pode precisar de uma lógica personalizada para codificar ou decodificar dados JSON. Você pode implementar a interface json.Marshaler e json.Unmarshaler em seus tipos para fornecer essa lógica personalizada.
+
+```go
+type CustomData struct {
+    Value int
+}
+
+func (c *CustomData) UnmarshalJSON(data []byte) error {
+    // Lógica personalizada para decodificar JSON
+}
+
+func (c *CustomData) MarshalJSON() ([]byte, error) {
+    // Lógica personalizada para codificar JSON
+}
+```
+
+**Validação de Estrutura JSON**
+
+O pacote encoding/json em Go não fornece suporte nativo para validação de estrutura JSON. No entanto, você pode usar outras bibliotecas, como github.com/go-playground/validator, para validar estruturas de dados JSON.
+
+**Decodificação de JSON Aninhado**
+
+Quando trabalhamos com JSON aninhado, às vezes precisamos acessar campos dentro de campos. Para isso, podemos usar tipos de estruturas aninhadas ou tipos de mapa (map[string]interface{}) para decodificar o JSON.
+
+**Codificação Condicional**
+
+Às vezes, queremos codificar apenas um subconjunto dos campos de uma estrutura em JSON, dependendo de certas condições. Podemos usar a técnica de criar uma estrutura separada que inclui apenas os campos desejados e, em seguida, codificar essa estrutura em JSON.
+
+**Manipulação de Grandes Dados JSON**
+
+Quando trabalhamos com grandes volumes de dados JSON, devemos considerar o uso de decodificação incremental ou streaming para evitar a sobrecarga de memória. Isso pode ser feito usando json.Decoder para ler o JSON em partes e processá-lo conforme necessário.
+
+## HTTP
+
+Trabalhar com HTTP em Go é simples e direto, graças à biblioteca padrão rica em recursos. Vamos explorar como criar um servidor HTTP básico usando o pacote net/http e, em seguida, veremos como podemos expandir suas capacidades para criar um servidor mais robusto.
+
+**Criando um Servidor HTTP Básico**
+
+Para criar um servidor HTTP básico em Go, precisamos seguir três etapas principais:
+
+* Definir um manipulador para lidar com solicitações HTTP.
+* Registrar o manipulador para um caminho específico.
+* Iniciar o servidor HTTP.
+
+Aqui está um exemplo simples de um servidor HTTP que responde com "Hello, World!" para todas as solicitações:
+
+```go
+package main
+
+import (
+    "fmt"
+    "net/http"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Hello, World!")
+}
+
+func main() {
+    http.HandleFunc("/", handler)
+    http.ListenAndServe(":8080", nil)
+}
+```
+
+**Manipulador HTTP**
+
+O manipulador handler neste exemplo é uma função que recebe dois parâmetros: http.ResponseWriter e *http.Request. O primeiro é usado para escrever a resposta HTTP de volta para o cliente, e o segundo contém informações sobre a solicitação HTTP recebida.
+
+**Registrando o Manipulador**
+
+Usamos http.HandleFunc para associar um manipulador a um padrão de rota. Neste caso, estamos associando o manipulador ao padrão de rota raiz ("/"), o que significa que ele responderá a todas as solicitações recebidas no servidor.
+
+**Iniciando o Servidor**
+
+Finalmente, usamos http.ListenAndServe para iniciar o servidor HTTP na porta especificada (8080 neste exemplo). Este método é bloqueante e só retorna se ocorrer um erro.
+
+**Expansão do Servidor HTTP**
+
+Para tornar o servidor HTTP mais robusto, podemos adicionar recursos adicionais, como roteamento avançado, middleware, tratamento de erros, suporte a TLS/SSL, autenticação e autorização, e muito mais. Isso pode ser feito usando bibliotecas de terceiros ou implementando esses recursos manualmente.
+
+## HTML, CSS, JavaScript
+
+Para renderizar arquivos HTML em um servidor HTTP em Go, podemos usar o pacote html/template da biblioteca padrão. Este pacote nos permite criar modelos HTML dinâmicos e preencher esses modelos com dados antes de enviá-los como resposta HTTP. Vou mostrar um exemplo de como fazer isso:
+
+Suponha que temos um arquivo HTML chamado index.html na mesma pasta que nosso arquivo Go:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo</title>
+</head>
+<body>
+    <h1>Olá, {{.Name}}!</h1>
+    <p>Idade: {{.Age}}</p>
+</body>
+</html>
+```
+
+Aqui está um exemplo de código Go que renderiza este arquivo HTML:
+
+```go
+package main
+
+import (
+    "html/template"
+    "net/http"
+)
+
+type Person struct {
+    Name string
+    Age  int
+}
+
+func handler(w http.ResponseWriter, r *http.Request) {
+    // Definir os dados a serem inseridos no template
+    data := Person{Name: "João", Age: 30}
+
+    // Parse o arquivo HTML
+    tmpl, err := template.ParseFiles("index.html")
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    // Renderize o template com os dados
+    err = tmpl.Execute(w, data)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+}
+
+func main() {
+    http.HandleFunc("/", handler)
+    http.ListenAndServe(":8080", nil)
+}
+```
+
+Neste exemplo, definimos uma estrutura Person que contém o nome e a idade de uma pessoa. No manipulador HTTP, criamos uma instância dessa estrutura e a passamos para o template HTML. Usamos template.ParseFiles para carregar o arquivo HTML e tmpl.Execute para renderizá-lo com os dados fornecidos e enviá-lo como resposta HTTP.
+
+Lembre-se de que o arquivo HTML deve estar acessível para o servidor Go e que você deve manipular quaisquer erros que ocorram durante o processamento do template.
