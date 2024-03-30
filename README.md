@@ -272,11 +272,11 @@ A função MathematicalCalculations recebe dois valores e aplica as operações 
 
 Os operadores aritméticos em Go são usados para realizar operações matemáticas básicas. Os principais operadores aritméticos são:
 
-* + : Adição
-* - : Subtração
-* * : Multiplicação
-* / : Divisão
-* % : Módulo (resto da divisão)
+* +: Adição
+* -: Subtração
+* *: Multiplicação
+* /: Divisão
+* %: Módulo (resto da divisão)
 
 Por exemplo:
 
