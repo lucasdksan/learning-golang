@@ -1767,238 +1767,42 @@ Lembre-se de que o arquivo HTML deve estar acessível para o servidor Go e que v
 
 ## Lista de Exercìcios
 
-Escreva um programa em Go que imprima "Olá, mundo!" na tela.
-Escreva um programa em Go que solicite ao usuário seu nome e, em seguida, imprima "Olá, [nome]!" na tela.
-Escreva uma função em Go que receba dois números como parâmetros e retorne a soma desses números.
-Escreva uma função em Go que receba um número inteiro como parâmetro e retorne verdadeiro se o número for par e falso caso contrário.
-Escreva uma função em Go que receba um número inteiro como parâmetro e retorne verdadeiro se o número for primo e falso caso contrário.
-Escreva uma função em Go que receba uma string como parâmetro e retorne o número de vogais nessa string.
-Escreva uma função em Go que receba uma lista de inteiros e retorne o maior número da lista.
-Escreva uma função em Go que receba uma lista de inteiros e retorne a média desses números.
-Escreva uma função em Go que receba uma lista de strings e retorne uma nova lista com todas as strings em letras maiúsculas.
-Escreva um programa em Go que leia um número inteiro do usuário e imprima todos os números primos menores ou iguais a esse número.
-Esses exercícios devem ajudar a praticar conceitos básicos de Go, como funções, condicionais, loops e manipulação de strings e listas.
+* 1 - Escreva um programa em Go que imprima "Olá, mundo!" na tela.
 
+* 2 - Escreva um programa em Go que solicite ao usuário seu nome e, em seguida, imprima "Olá, [nome]!" na tela.
 
-User
-Agora faça as respostas
-ChatGPT
-Claro, aqui estão as respostas para os exercícios propostos em Go:
+* 3 - Escreva uma função em Go que receba dois números como parâmetros e retorne a soma desses números.
 
-"Olá, mundo!":
+* 4 - Escreva uma função em Go que receba um número inteiro como parâmetro e retorne verdadeiro se o número for par e falso caso contrário.
 
-go
-Copy code
-package main
+* 5 - Escreva uma função em Go que receba um número inteiro como parâmetro e retorne verdadeiro se o número for primo e falso caso contrário.
 
-import "fmt"
+* 6 - Escreva uma função em Go que receba uma string como parâmetro e retorne o número de vogais nessa string.
 
-func main() {
-    fmt.Println("Olá, mundo!")
-}
-Solicitar nome do usuário e imprimir "Olá, [nome]!":
+* 7 - Escreva uma função em Go que receba uma lista de inteiros e retorne o maior número da lista.
 
-go
-Copy code
-package main
+* 8 - Escreva uma função em Go que receba uma lista de inteiros e retorne a média desses números.
 
-import "fmt"
+* 9 - Escreva uma função em Go que receba uma lista de strings e retorne uma nova lista com todas as strings em letras maiúsculas.
 
-func main() {
-    var nome string
-    fmt.Print("Digite seu nome: ")
-    fmt.Scanln(&nome)
-    fmt.Println("Olá,", nome+"!")
-}
-Função para somar dois números:
+* 10 - Escreva um programa em Go que leia um número inteiro do usuário e imprima todos os números primos menores ou iguais a esse número.
 
-go
-Copy code
-package main
+* 11 - Escreva uma função em Go que receba uma string e retorne verdadeiro se a string for um palíndromo (ou seja, pode ser lida da mesma forma de trás para frente) e falso caso contrário.
 
-import "fmt"
+* 12 - Escreva uma função em Go que receba uma lista de inteiros e retorne uma nova lista contendo apenas os números pares da lista original.
 
-func soma(a, b int) int {
-    return a + b
-}
+* 13 - Escreva uma função em Go que calcule e retorne o fatorial de um número inteiro fornecido como parâmetro.
 
-func main() {
-    fmt.Println(soma(3, 4))
-}
-Função para verificar se um número é par:
+* 14 - Escreva uma função em Go que receba uma lista de strings e retorne a concatenação de todas as strings.
 
-go
-Copy code
-package main
+* 15 - Escreva uma função em Go que receba um número inteiro como parâmetro e retorne verdadeiro se o número for um quadrado perfeito e falso caso contrário.
 
-import "fmt"
+* 16 - Escreva um programa em Go que imprima os primeiros N termos da sequência de Fibonacci, onde N é fornecido pelo usuário.
 
-func par(numero int) bool {
-    return numero%2 == 0
-}
+* 17 - Escreva uma função em Go que receba uma lista de inteiros e retorne a soma de todos os números na lista.
 
-func main() {
-    fmt.Println(par(4)) // Retorna true
-    fmt.Println(par(5)) // Retorna false
-}
-Função para verificar se um número é primo:
+* 18 - Escreva uma função em Go que receba uma string e retorne o número de palavras na string.
 
-go
-Copy code
-package main
+* 19 - Escreva uma função em Go que receba um número inteiro positivo como parâmetro e retorne uma lista de todos os divisores desse número.
 
-import "fmt"
-
-func primo(numero int) bool {
-    if numero <= 1 {
-        return false
-    }
-    for i := 2; i*i <= numero; i++ {
-        if numero%i == 0 {
-            return false
-        }
-    }
-    return true
-}
-
-func main() {
-    fmt.Println(primo(7)) // Retorna true
-    fmt.Println(primo(10)) // Retorna false
-}
-Função para contar vogais em uma string:
-
-go
-Copy code
-package main
-
-import "fmt"
-
-func contarVogais(s string) int {
-    vogais := "aeiouAEIOU"
-    contador := 0
-    for _, char := range s {
-        if strings.ContainsRune(vogais, char) {
-            contador++
-        }
-    }
-    return contador
-}
-
-func main() {
-    fmt.Println(contarVogais("Hello, World!")) // Retorna 3
-}
-Função para encontrar o maior número em uma lista:
-
-go
-Copy code
-package main
-
-import (
-    "fmt"
-    "sort"
-)
-
-func maiorNumero(lista []int) int {
-    sort.Ints(lista)
-    return lista[len(lista)-1]
-}
-
-func main() {
-    numeros := []int{4, 2, 9, 5, 1}
-    fmt.Println(maiorNumero(numeros)) // Retorna 9
-}
-Função para calcular a média de uma lista de números:
-
-go
-Copy code
-package main
-
-import "fmt"
-
-func media(lista []int) float64 {
-    soma := 0
-    for _, num := range lista {
-        soma += num
-    }
-    return float64(soma) / float64(len(lista))
-}
-
-func main() {
-    numeros := []int{4, 2, 9, 5, 1}
-    fmt.Println(media(numeros)) // Retorna 4.2
-}
-Função para converter strings para maiúsculas:
-
-go
-Copy code
-package main
-
-import (
-    "fmt"
-    "strings"
-)
-
-func maiusculas(lista []string) []string {
-    resultado := make([]string, len(lista))
-    for i, str := range lista {
-        resultado[i] = strings.ToUpper(str)
-    }
-    return resultado
-}
-
-func main() {
-    palavras := []string{"hello", "world"}
-    fmt.Println(maiusculas(palavras)) // Retorna ["HELLO", "WORLD"]
-}
-Programa para imprimir todos os números primos menores ou iguais a um número fornecido pelo usuário:
-
-go
-Copy code
-package main
-
-import "fmt"
-
-func primo(numero int) bool {
-    if numero <= 1 {
-        return false
-    }
-    for i := 2; i*i <= numero; i++ {
-        if numero%i == 0 {
-            return false
-        }
-    }
-    return true
-}
-
-func main() {
-    var n int
-    fmt.Print("Digite um número: ")
-    fmt.Scanln(&n)
-    fmt.Println("Números primos até", n, ":")
-    for i := 2; i <= n; i++ {
-        if primo(i) {
-            fmt.Println(i)
-        }
-    }
-}
-Esses códigos devem ajudar na compreensão dos conceitos básicos de Go e na prática de escrever código nessa linguagem.
-
-* 1 - Escreva uma função em Go que receba uma string e retorne verdadeiro se a string for um palíndromo (ou seja, pode ser lida da mesma forma de trás para frente) e falso caso contrário.
-
-* 2 - Escreva uma função em Go que receba uma lista de inteiros e retorne uma nova lista contendo apenas os números pares da lista original.
-
-* 3 - Escreva uma função em Go que calcule e retorne o fatorial de um número inteiro fornecido como parâmetro.
-
-* 4 - Escreva uma função em Go que receba uma lista de strings e retorne a concatenação de todas as strings.
-
-* 5 - Escreva uma função em Go que receba um número inteiro como parâmetro e retorne verdadeiro se o número for um quadrado perfeito e falso caso contrário.
-
-* 6 - Escreva um programa em Go que imprima os primeiros N termos da sequência de Fibonacci, onde N é fornecido pelo usuário.
-
-* 7 - Escreva uma função em Go que receba uma lista de inteiros e retorne a soma de todos os números na lista.
-
-* 8 - Escreva uma função em Go que receba uma string e retorne o número de palavras na string.
-
-* 9 - Escreva uma função em Go que receba um número inteiro positivo como parâmetro e retorne uma lista de todos os divisores desse número.
-
-* 10 - Escreva um programa em Go que solicite ao usuário uma temperatura em Celsius e imprima a temperatura equivalente em Fahrenheit.
+* 20 - Escreva um programa em Go que solicite ao usuário uma temperatura em Celsius e imprima a temperatura equivalente em Fahrenheit.
