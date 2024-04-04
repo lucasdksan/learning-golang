@@ -4,6 +4,7 @@ import "fmt"
 
 type user struct {
 	name     string
+	email    string
 	year     uint
 	password string
 }
