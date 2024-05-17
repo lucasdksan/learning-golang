@@ -26,4 +26,5 @@ func main() {
 	val3 += 15
 
 	fmt.Println(val3, *p)
+	fmt.Println(val3, p)
 }
