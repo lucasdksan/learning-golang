@@ -72,6 +72,8 @@ E no seu go.mod:
     require github.com/user/package v1.2.3
 ```
 
+*Iniciar um projeto GOlang: go mod init (nome do projeto) -> no seu terminal*
+
 **Importação e Uso de Tipos e Funções**
 
 Dentro do mesmo pacote, você pode simplesmente importar outros arquivos do mesmo pacote e usar os tipos e funções definidos nesses arquivos. Por exemplo, suponha que você tenha dois arquivos, file1.go e file2.go, ambos pertencentes ao mesmo pacote mypackage:
@@ -1799,10 +1801,14 @@ Lembre-se de que o arquivo HTML deve estar acessível para o servidor Go e que v
 
 * 16 - Escreva um programa em Go que imprima os primeiros N termos da sequência de Fibonacci, onde N é fornecido pelo usuário.
 
-* 17 - Escreva uma função em Go que receba uma lista de inteiros e retorne a soma de todos os números na lista.
+* 17 - Faça uma função/método que receba uma string como parâmetro e que retorne uma nova string, onde a sequência dos caracteres foi invertida. Dentro da parte principal (main), leia uma string digitada pelo usuário e passe para a função/método criada, imprimindo em seguida a string devolvida.
 
-* 18 - Escreva uma função em Go que receba uma string e retorne o número de palavras na string.
+* 18 - Faça um programa que abra um arquivo texto "input.txt", pré-existente. O programa então deve ler o arquivo linha por linha e apresentar a soma total do comprimento de todas as linhas. Verifique se é necessário fechar o arquivo antes do programa terminar. Adicione também suporte para eventuais situações de erro, como por exemplo não conseguir abrir o nome de arquivo especificado.
 
-* 19 - Escreva uma função em Go que receba um número inteiro positivo como parâmetro e retorne uma lista de todos os divisores desse número.
+* 19 - Escreva uma função em Go que receba uma lista de inteiros e retorne a soma de todos os números na lista.
 
-* 20 - Escreva um programa em Go que solicite ao usuário uma temperatura em Celsius e imprima a temperatura equivalente em Fahrenheit.
+* 20 - Escreva uma função em Go que receba uma string e retorne o número de palavras na string.
+
+* 21 - Escreva uma função em Go que receba um número inteiro positivo como parâmetro e retorne uma lista de todos os divisores desse número.
+
+* 22 - Escreva um programa em Go que solicite ao usuário uma temperatura em Celsius e imprima a temperatura equivalente em Fahrenheit.
