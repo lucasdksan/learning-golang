@@ -1767,6 +1767,12 @@ Neste exemplo, definimos uma estrutura Person que contém o nome e a idade de um
 
 Lembre-se de que o arquivo HTML deve estar acessível para o servidor Go e que você deve manipular quaisquer erros que ocorram durante o processamento do template.
 
+## Referências
+
+- [Udemy](https://www.udemy.com/user/otavio-augusto-gallego/)
+- [Chat GPT](https://chat.openai.com/)
+- [TabNews](https://www.tabnews.com.br/) 
+
 ## Lista de Exercìcios
 
 * 1 - Escreva um programa em Go que imprima "Olá, mundo!" na tela.
