@@ -1818,3 +1818,15 @@ Lembre-se de que o arquivo HTML deve estar acessível para o servidor Go e que v
 * 21 - Escreva uma função em Go que receba um número inteiro positivo como parâmetro e retorne uma lista de todos os divisores desse número.
 
 * 22 - Escreva um programa em Go que solicite ao usuário uma temperatura em Celsius e imprima a temperatura equivalente em Fahrenheit.
+
+* 23 - Escreva um programa em Go que faça o seguinte:
+
+- 1 Crie um canal que transporta inteiros.
+- 2 Inicie uma goroutine que envia números de 1 a 5 para esse canal.
+- 2 No goroutine principal, receba e imprima esses números do canal.
+
+* 24 - Escreva um programa em Go que faça o seguinte:
+
+- 1 Crie dois canais que transportam strings.
+- 2 Inicie duas goroutines que enviam mensagens diferentes para cada canal em intervalos diferentes.
+- 3 Utilize um select para receber e imprimir as mensagens dos dois canais.
