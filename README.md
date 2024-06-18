@@ -1830,3 +1830,9 @@ Lembre-se de que o arquivo HTML deve estar acessível para o servidor Go e que v
 - 1 Crie dois canais que transportam strings.
 - 2 Inicie duas goroutines que enviam mensagens diferentes para cada canal em intervalos diferentes.
 - 3 Utilize um select para receber e imprimir as mensagens dos dois canais.
+
+* 25 - Escreva um programa em Go que faça o seguinte:
+
+- 1 Crie um canal com buffer de tamanho 3 que transporta inteiros.
+- 2 Envie três valores para o canal sem utilizar goroutines.
+- 3 Receba e imprima esses valores do canal.
