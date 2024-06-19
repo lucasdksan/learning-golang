@@ -1836,3 +1836,35 @@ Lembre-se de que o arquivo HTML deve estar acessível para o servidor Go e que v
 - 1 Crie um canal com buffer de tamanho 3 que transporta inteiros.
 - 2 Envie três valores para o canal sem utilizar goroutines.
 - 3 Receba e imprima esses valores do canal.
+
+* 26 - Produtor e Consumidor:
+
+- 1 Crie um canal que transporta inteiros.
+- 2 Inicie uma goroutine que atue como produtor, gerando números de 1 a 10 e enviando-os para o canal.
+- 3 Inicie outra goroutine que atue como consumidor, recebendo os números do canal e imprimindo-os.
+- 4 Use um canal adicional para sinalizar quando todos os números tiverem sido consumidos, e o goroutine principal deve esperar por esse sinal para terminar a execução.
+
+* 27 - Goroutines Simples:
+
+- 1 Crie duas goroutines.
+- 2 Cada goroutine deve imprimir uma mensagem diferente.
+- 3 Certifique-se de que o programa principal espere a conclusão das goroutines antes de terminar.
+
+* 28 - Produtor-Consumidor com Buffer:
+
+- 1 Crie um canal com buffer de tamanho 5.
+- 2 Inicie uma goroutine produtora que envia 10 números inteiros para o canal.
+- 3 Inicie uma goroutine consumidora que lê os números do canal e imprime-os.
+- 4 Certifique-se de que o programa principal espere a conclusão das goroutines antes de terminar.
+
+* 29 - Uso do select com Timeout:
+
+- 1 Crie um canal que transporta inteiros.
+- 2 Inicie uma goroutine que envia um número para o canal após um segundo.
+- 3 Use select no goroutine principal para tentar receber do canal com um timeout de 500 milissegundos.
+- 4 Imprima uma mensagem apropriada se a operação de recebimento no canal expirar.
+
+* 30 - Paralelismo com WaitGroup
+
+- 1 Crie 5 goroutines, cada uma imprimindo seu número identificador.
+- 2 Utilize sync.WaitGroup para garantir que o programa principal espere todas as goroutines terminarem antes de encerrar.
