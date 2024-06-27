@@ -2,6 +2,33 @@
 
 *Meus primeiros passos em GOlang*
 
+# Sumário
+
+[História](#História)
+[Importação e Exportação de Funções e Pacotes em Go](#Importação-e-Exportação-de-Funções-e-Pacotes-em-Go)
+[Declaração e Inicialização](#Declaração-e-Inicialização)
+[Tipos de Variáveis em Go](#Tipos-de-Variáveis-em-Go)
+[Funções](#Funções)
+[Operadores](#Operadores)
+[Structs](#Structs)
+[Ponteiros](#Ponteiros)
+[Arrays e Slices](#Arrays-e-Slices)
+[Maps](#Maps)
+[Estruturas de Controle](#Estruturas-de-Controle)
+[Switch](#Switch)
+[Loop](#Loop)
+[Funções Avançadas](#Funções-Avançadas)
+[Métodos](#Métodos)
+[Interfaces](#Interfaces)
+[Concorrência](#Concorrência)
+[Testes](#Testes)
+[Testes Avançados](#Testes-Avançados)
+[JSON](#JSON)
+[HTTP](#HTTP)
+[HTML, CSS, JavaScript](#HTML,-CSS,-JavaScript)
+[Referências](#Referências)
+[Lista de Exercìcios](#Lista-de-Exercìcios)
+
 ## História
 
 Go, também conhecida como Golang, é uma linguagem de programação de código aberto criada pelos engenheiros do Google Robert Griesemer, Rob Pike e Ken Thompson. O desenvolvimento começou em 2007, com o objetivo de criar uma linguagem que fosse eficiente, concorrente, segura e de fácil manutenção.
@@ -274,11 +301,13 @@ A função MathematicalCalculations recebe dois valores e aplica as operações 
 
 Os operadores aritméticos em Go são usados para realizar operações matemáticas básicas. Os principais operadores aritméticos são:
 
-* +: Adição
-* -: Subtração
-* *: Multiplicação
-* /: Divisão
-* %: Módulo (resto da divisão)
+```
++ : Adição
+- : Subtração
+* : Multiplicação
+/ : Divisão
+% : Módulo (resto da divisão)
+```
 
 Por exemplo:
 
@@ -296,12 +325,14 @@ modulo := a % b    // 0
 
 Os operadores de comparação são usados para comparar valores. Eles retornam um valor booleano (true ou false). Os principais operadores de comparação em Go são:
 
-* == : Igual a
-* != : Diferente de
-* < : Menor que
-* -> : Maior que
-* <= : Menor ou igual a
-* ->= : Maior ou igual a
+```
+== : Igual a
+!= : Diferente de
+< : Menor que
+> : Maior que
+<= : Menor ou igual a
+>= : Maior ou igual a
+```
 
 Por exemplo:
 
@@ -338,11 +369,13 @@ negacao := !a       // false
 
 Go também suporta operadores bit a bit, que operam em cada bit individual de um número. Os principais operadores bit a bit são:
 
-* & : E bit a bit (AND)
-* | : Ou bit a bit (OR)
-* ^ : Ou exclusivo bit a bit (XOR)
-* << : Deslocamento para a esquerda
-* ->> : Deslocamento para a direita
+```
+& : E bit a bit (AND)
+| : Ou bit a bit (OR)
+^ : Ou exclusivo bit a bit (XOR)
+<< : Deslocamento para a esquerda
+>> : Deslocamento para a direita
+```
 
 Por exemplo:
 
@@ -361,16 +394,18 @@ deslocamentoDireita := a >> 1   // 2 (10)
 
 Os operadores de atribuição em Go são usados para atribuir valores a variáveis. O operador de atribuição básico é =. Além disso, há operadores de atribuição combinados que realizam uma operação aritmética antes de atribuir o valor. Por exemplo:
 
-* += : Adição e atribuição
-* -= : Subtração e atribuição
-* *= : Multiplicação e atribuição
-* /= : Divisão e atribuição
-* %= : Módulo e atribuição
-* <<= : Deslocamento para a esquerda e atribuição
-* ->>= : Deslocamento para a direita e atribuição
-* &= : E bit a bit e atribuição
-* |= : Ou bit a bit e atribuição
-* ^= : Ou exclusivo bit a bit e atribuição
+```
++= : Adição e atribuição
+-= : Subtração e atribuição
+*= : Multiplicação e atribuição
+/= : Divisão e atribuição
+%= : Módulo e atribuição
+<<= : Deslocamento para a esquerda e atribuição
+>>= : Deslocamento para a direita e atribuição
+&= : E bit a bit e atribuição
+|= : Ou bit a bit e atribuição
+^= : Ou exclusivo bit a bit e atribuição
+```
 
 Por exemplo:
 
@@ -1868,3 +1903,10 @@ Lembre-se de que o arquivo HTML deve estar acessível para o servidor Go e que v
 
 - 1 Crie 5 goroutines, cada uma imprimindo seu número identificador.
 - 2 Utilize sync.WaitGroup para garantir que o programa principal espere todas as goroutines terminarem antes de encerrar.
+
+* 31 - Mutex para Sincronização
+
+- 1 Crie uma variável compartilhada (contador).
+- 2 Inicie 10 goroutines que incrementam essa variável 100 vezes cada uma.
+- 3 Use sync.Mutex para garantir que os incrementos no contador sejam realizados de forma segura.
+- 4 Imprima o valor final do contador no goroutine principal.
