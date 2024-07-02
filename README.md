@@ -1868,37 +1868,37 @@ type Builder struct {
 
 Um Builder é usado para construir eficientemente uma string usando métodos Builder.Write . Ele minimiza a cópia de memória. O valor zero está pronto para uso. Não copie um Builder diferente de zero.
 
-**func (*Builder) Cap**
+<strong>func (*Builder) Cap</strong>
 
 Cap retorna a capacidade da fatia de byte subjacente do construtor. É o espaço total alocado para a string que está sendo construída e inclui quaisquer bytes já escritos.
 
-**func (*Builder) Len**
+<strong>func (*Builder) Len</strong>
 
 Len retorna o número de bytes acumulados; b.Len() == len(b.String()).
 
-**func (*Builder) Reset**
+<strong>func (*Builder) Reset</strong>
 
 Redefinir redefine o Builder para ficar vazio.
 
-**func (*Builder) String**
+<strong>func (*Builder) String</strong>
 
 String retorna a string acumulada.
 
-**func (*Builder) Write**
+<strong>func (*Builder) Write</strong>
 
 Write acrescenta o conteúdo de p ao buffer de b. Write sempre retorna len(p), nil.
 
-**func (*Builder) WriteByte**
+<strong>func (*Builder) WriteByte</strong>
 
 WriteByte acrescenta o byte c ao buffer de b. O erro retornado é sempre nil.
 
 *A diferença entre Write e WriteByte está na quantidade e no tipo de dados que cada um escreve no strings.Builder*
 
-**func (*Builder) WriteRune**
+<strong>func (*Builder) WriteRune</strong>
 
 WriteRune anexa a codificação UTF-8 do ponto de código Unicode r ao buffer de b. Ele retorna o comprimento de r e um erro nil.
 
-**func (*Builder) WriteString**
+<strong>func (*Builder) WriteString</strong>
 
 WriteString acrescenta o conteúdo de s ao buffer de b. Ele retorna o comprimento de s e um erro nil.
 
@@ -1912,51 +1912,51 @@ type Reader struct {
 
 Um Reader implementa as interfaces io.Reader , io.ReaderAt , io.ByteReader , io.ByteScanner , io.RuneReader , io.RuneScanner , io.Seeker e io.WriterTo lendo de uma string. O valor zero para Reader opera como um Reader de uma string vazia.
 
-**func NewReader**
+<strong>func NewReader</strong>
 
-NewReader retorna um novo Reader lendo de s. É semelhante a bytes.NewBufferString , mas mais eficiente e não gravável.
+NewReader retorna um novo Reader lendo de s. É semelhante a bytes.NewBufferString, mas mais eficiente e não gravável.
 
-**func (*Reader) Len**
+<strong>func (*Reader) Len</strong>
 
 Len retorna o número de bytes da parte não lida da string.
 
-**func (*Reader) Read**
+<strong>func (*Reader) Read</strong>
 
 Read implementa a interface io.Reader.
 
-**func (*Reader) ReadAt**
+<strong>func (*Reader) ReadAt</strong>
 
 ReadAt implementa a interface io.ReaderAt.
 
-**func (*Reader) ReadByte**
+<strong>func (*Reader) ReadByte</strong>
 
-ReadByte implementa a interface io.ByteReader .
+ReadByte implementa a interface io.ByteReader.
 
-**func (*Reader) ReadRune**
+<strong>func (*Reader) ReadRune</strong>
 
 ReadRune implementa a interface io.RuneReader.
 
-**func (*Reader) Reset**
+<strong>func (*Reader) Reset</strong>
 
 Redefinir redefine o Leitor para que ele leia de s.
 
-**func (*Reader) Seek**
+<strong>func (*Reader) Seek</strong>
 
 Seek implementa a interface io.Seeker.
 
-**func (*Reader) Size**
+<strong>func (*Reader) Size</strong>
 
-Size retorna o comprimento original da string subjacente. Size é o número de bytes disponíveis para leitura via Reader.ReadAt . O valor retornado é sempre o mesmo e não é afetado por chamadas para nenhum outro método.
+Size retorna o comprimento original da string subjacente. Size é o número de bytes disponíveis para leitura via Reader.ReadAt. O valor retornado é sempre o mesmo e não é afetado por chamadas para nenhum outro método.
 
-**func (*Reader) UnreadByte**
+<strong>func (*Reader) UnreadByte</strong>
 
 UnreadByte implementa a interface io.ByteScanner.
 
-**func (*Reader) UnreadRune**
+<strong>func (*Reader) UnreadRune</strong>
 
 UnreadRune implementa a interface io.RuneScanner.
 
-**func (*Reader) WriteTo**
+<strong>func (*Reader) WriteTo</strong>
 
 WriteTo implementa a interface io.WriterTo.
 
@@ -1970,17 +1970,17 @@ type Replacer struct {
 
 Replacer substitui uma lista de strings por replacements. É seguro para uso concorrente por várias goroutines.
 
-**func NewReplacer**
+<strong>func NewReplacer</strong>
 
 NewReplacer retorna um novo Replacer de uma lista de pares de strings antigos e novos. As substituições são realizadas na ordem em que aparecem na string de destino, sem correspondências sobrepostas. As comparações de strings antigas são feitas na ordem dos argumentos.
 
 O NewReplacer entra em pânico se receber um número ímpar de argumentos.
 
-**func (*Replacer) Replace**
+<strong>func (*Replacer) Replace</strong>
 
-Substituir retorna uma cópia de s com todas as substituições realizadas.
+Replace retorna uma cópia de s com todas as substituições realizadas.
 
-**func (*Replacer) WriteString**
+<strong>func (*Replacer) WriteString</strong>
 
 WriteString escreve s em w com todas as substituições realizadas.
 
