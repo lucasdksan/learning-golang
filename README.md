@@ -2069,6 +2069,10 @@ func main() {
 
 * io – Funções básicas de entrada/saída.
 
+O pacote io fornece interfaces básicas para primitivas de E/S. Sua principal tarefa é encapsular implementações existentes de tais primitivas, como aquelas no pacote os, em interfaces públicas compartilhadas que abstraem a funcionalidade, além de algumas outras primitivas relacionadas.
+
+Como essas interfaces e primitivas envolvem operações de nível inferior com várias implementações, a menos que sejam informados de outra forma, os clientes não devem presumir que elas são seguras para execução paralela.
+
 ```go
 package main
 
@@ -2082,6 +2086,28 @@ func main() {
     io.WriteString(os.Stdout, "Hello, World!\n")
 }
 ```
+
+<strong>func Copy</strong>
+
+Copy cópias de src para dst até que EOF seja alcançado em src ou ocorra um erro. Ele retorna o número de bytes copiados e o primeiro erro encontrado durante a cópia, se houver.
+
+Uma cópia bem-sucedida retorna err == nil, não err == EOF. Como Copy é definido para ler de src até EOF, ele não trata um EOF de Read como um erro a ser relatado.
+
+Se src implementar WriterTo , a cópia será implementada chamando src.WriteTo(dst). Caso contrário, se dst implementar ReaderFrom , a cópia será implementada chamando dst.ReadFrom(src).
+
+<strong>func CopyBuffer</strong>
+
+func CopyBuffer é idêntico a Copy, exceto que ele passa pelo buffer fornecido (se um for necessário) em vez de alocar um temporário. Se buf for nil, um é alocado; caso contrário, se ele tiver comprimento zero, CopyBuffer entra em pânico.
+
+Se src implementar WriterTo ou dst implementar ReaderFrom , buf não será usado para executar a cópia.
+
+<strong>func Pipe</strong>
+
+func Pipe cria um pipe síncrono na memória. Ele pode ser usado para conectar código esperando um io.Reader com código esperando um io.Writer .
+
+Leituras e Escritas no pipe são correspondidas uma a uma, exceto quando múltiplas Leituras são necessárias para consumir uma única Escrita. Ou seja, cada Escrita no PipeWriter bloqueia até que tenha satisfeito uma ou mais Leituras do PipeReader que consumam completamente os dados escritos. Os dados são copiados diretamente da Escrita para a Leitura correspondente (ou Leituras); não há buffer interno.
+
+É seguro chamar Read e Write em paralelo um com o outro ou com Close. Chamadas paralelas para Read e chamadas paralelas para Write também são seguras: as chamadas individuais serão gated sequencialmente.
 
 * io/ioutil – Utilitários I/O.
 
@@ -2807,6 +2833,7 @@ func Add(a, b int) int {
 ## Referências
 
 - [Udemy](https://www.udemy.com/user/otavio-augusto-gallego/)
+- [pkg.go](https://pkg.go.dev/)
 - [Chat GPT](https://chat.openai.com/)
 - [TabNews](https://www.tabnews.com.br/) 
 
