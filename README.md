@@ -28,8 +28,8 @@
 * [HTML, CSS, JavaScript](#HTML,-CSS,-JavaScript)
 * [Bibliotecas Nativas](#Bibliotecas-Nativas)
 * [Contexts](#Contexts)
-* [Referências](#Referências)
 * [Lista de Exercìcios](#Lista-de-Exercìcios)
+* [Referências](#Referências)
 
 ## História
 
@@ -2871,13 +2871,6 @@ Abaixo estão alguns dos principais contextos em Go:
 
 * Banco de Dados e I/O: Em operações de I/O ou chamadas a banco de dados, o contexto permite definir timeouts, o que é crucial para evitar que a aplicação fique bloqueada em operações demoradas.
 
-## Referências
-
-- [Udemy](https://www.udemy.com/user/otavio-augusto-gallego/)
-- [pkg.go](https://pkg.go.dev/)
-- [Chat GPT](https://chat.openai.com/)
-- [TabNews](https://www.tabnews.com.br/) 
-
 ## Lista de Exercìcios
 
 * 1 - Escreva um programa em Go que imprima "Olá, mundo!" na tela.
@@ -2980,3 +2973,10 @@ Abaixo estão alguns dos principais contextos em Go:
 - 2 Inicie 10 goroutines que incrementam essa variável 100 vezes cada uma.
 - 3 Use sync.Mutex para garantir que os incrementos no contador sejam realizados de forma segura.
 - 4 Imprima o valor final do contador no goroutine principal.
+
+## Referências
+
+- [Udemy](https://www.udemy.com/user/otavio-augusto-gallego/)
+- [pkg.go](https://pkg.go.dev/)
+- [Chat GPT](https://chat.openai.com/)
+- [TabNews](https://www.tabnews.com.br/)    
